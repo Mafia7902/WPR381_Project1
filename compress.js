@@ -1,27 +1,44 @@
-var compress = require('compressing');
+const compress = require('compressing');
+const fileNaming = require('./fileNaming');
 
-var choice = "zip";
-
-switch (choice) {
-    case "zip":
-        console.log("this is zip")
-
-        compress.zip.compressFile('F:\\Users\\Luke\\Desktop\\CompressThis.txt', 'F:\\Users\\Luke\\Desktop\\CompressThis.zip').then(console.log("File has been sucessfully compressed to .zip")).catch(console.log("Error!"));
-        break;
-
-    case "tar":
-        console.log("this is tar")
-
-        compress.tar.compressFile('', '').then(console.log("File has been sucessfully compressed to .tar")).catch(console.log("Error!"));
-        break;
-
-    case "tgz":
-
-        compress.tgz.compressFile('', '').then(console.log("File has been sucessfully compressed to .tgz")).catch(console.log("Error!"));
-        console.log("this is tgz")
-        break;
-
-    default:
-        console.log("Error! File extension not supported!")
-        break;
+var compressingFunc = (choice, path)=>{
+    switch (choice) {
+        case "zip":
+            console.log("this is zip")
+    
+            if (path.valueOf(".")>=0) {
+                compress.zip.compressFile(path, fileNaming(path, "zip")).then(console.log("File has been sucessfully compressed to .zip")).catch(console.log("Error!"));
+            } else{
+                compress.zip.compressDir(path, fileNaming(path, "zip")).then(console.log("File has been sucessfully compressed to .zip")).catch(console.log("Error!"));
+            }
+            
+            break;
+    
+        case "tar":
+            console.log("this is tar")
+    
+            if (path.valueOf(".")>=0) {
+                compress.tar.compressFile(path, fileNaming(path, "tar")).then(console.log("File has been sucessfully compressed to .tar")).catch(console.log("Error!"));
+            } else{
+                compress.tar.compressDir(path, fileNaming(path, "tar")).then(console.log("File has been sucessfully compressed to .tar")).catch(console.log("Error!"));
+            }
+    
+            break;
+    
+        case "tgz":
+    
+            if (path.valueOf(".")>=0) {
+                compress.tgz.compressFile(path, fileNaming(path, "tgz")).then(console.log("File has been sucessfully compressed to .tgz")).catch(console.log("Error!"));
+            } else{
+                compress.tgz.compressDir(path, fileNaming(path, "tgz")).then(console.log("File has been sucessfully compressed to .tgz")).catch(console.log("Error!"));
+            }
+    
+            break;
+    
+        default:
+            console.log("Error! File extension not supported!")
+            break;
+    }
 }
+
+module.exports = compressingFunc
