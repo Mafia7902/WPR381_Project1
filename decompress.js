@@ -11,7 +11,7 @@ console.log(type);
      .catch(console.log("This file has not been decompressed"));
   break;   
  case "tar":
- compressing.tar.uncompress('C:\\decompressed.tar', 'C:\\decompressed.zip')
+ compressing.tar.uncompress('C:\\decompressed.tar', 'C:\\decompressed.tar')
  .then(uncompressDone)
  .catch(handleError);
  break;
