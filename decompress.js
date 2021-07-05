@@ -5,8 +5,8 @@ const fileNaming = require("./fileNaming");
 
 //var path = "C:\\decompressed.zip";
 
-var type = path.substring(path.length - 3, path.length);
-console.log(type);
+//var type = path.substring(path.length - 3, path.length);
+//console.log(type);
 
 var deCompressingFunc = (choice, path) => {
   switch (choice) {
