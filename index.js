@@ -22,7 +22,6 @@ rl.question('Would you like to "Compress Folders" or "Extract Files"?', (answer)
        }) 
     }
     else if(answer=="Extract Files"){
-        console.log("Please input a number between 1 and 4")
        rl.question('Please provide the file path?', (filetype)=>{
            
         
