@@ -2,7 +2,7 @@ const { Console } = require('console');
 const readline = require('readline');
 const compress = require('./compress.js');
 const decompress = require('./decompress.js');
-const rl = rl.readline.createinterface({
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
