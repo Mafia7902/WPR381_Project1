@@ -1,5 +1,5 @@
 var compressing = require("compressing");
-var choice = "";
+var choice = "zip";
 
 var path = "C:\\decompressed.zip";
 
@@ -10,9 +10,14 @@ switch (choice) {
   case "zip":
     //var type = path.substring(".", 3);
     compressing.zip
-      .uncompress("C:\\decompressed.zip", "C:\\decompressed.zip")
-      .then(console.log("the file has been decompressed"))
+      .uncompress(
+        "C:\\Users\\stefa\\OneDrive\\Desktop\\WPR381_Project1\\unicorn.zip",
+        "C:\\Users\\stefa\\OneDrive\\Desktop\\WPR381_Project1\\"
+      )
+      .then(console.log("the zip has been decompressed"))
       .catch(console.log("This file has not been decompressed"));
+
+    //save the un zip file under your c drive but it shows error in console
     break;
 
   case "tar":
