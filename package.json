@@ -1,0 +1,19 @@
+{
+  "name": "wpr381_project1",
+  "version": "1.0.0",
+  "description": "Shammah Nhlabathi, Luke Mross, Kevin Van wyk, Brendan De beer, Stefan Ferreira",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mafia7902/WPR381_Project1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mafia7902/WPR381_Project1/issues"
+  },
+  "homepage": "https://github.com/Mafia7902/WPR381_Project1#readme"
+}
