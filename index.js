@@ -22,8 +22,8 @@ rl.question('Would you like to "Compress Folders" or "Extract Files"?', (answer)
        }) 
     }
     else if(answer=="Extract Files"){
-       rl.question('Please provide the file path?', (filetype)=>{
-           
+       rl.question('Please provide the file path?', (filepath)=>{
+           /*decompress.*/          
         
        }) 
     }
