@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Mafia7902/WPR381_Project1#readme",
   "dependencies": {
-    "compressing": "^1.5.1"
+    "chalk": "^4.1.1",
+    "compressing": "^1.5.1",
+    "node-emoji": "^1.10.0"
   }
 }

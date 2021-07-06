@@ -4,7 +4,6 @@ const fileNaming = require('./fileNaming');
 var compressingFunc = (choice, path)=>{
     switch (choice) {
         case "zip":
-            console.log("this is zip")
     
             if (path.valueOf(".")>=0) {
                 compress.zip.compressFile(path, fileNaming(path, "zip")).then(console.log("File has been sucessfully compressed to .zip")).catch(console.log("Error!"));
@@ -15,7 +14,6 @@ var compressingFunc = (choice, path)=>{
             break;
     
         case "tar":
-            console.log("this is tar")
     
             if (path.valueOf(".")>=0) {
                 compress.tar.compressFile(path, fileNaming(path, "tar")).then(console.log("File has been sucessfully compressed to .tar")).catch(console.log("Error!"));
