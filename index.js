@@ -12,12 +12,24 @@ rl.question('Would you like to "Compress Folders" or "Extract Files"?', (answer)
     if(answer=="Compress Folders"){
         console.log("Please input a number between 1 and 4")
        rl.question('What type of file do you want to compress?\n1. .zip, \n2. .gzip, \n3. .tar, \n4. .rar', (filetype)=>{
-           if(filetype<1||filetype>4){
-               console.log("Please input the correct value")
-           }
-           else{
-            /*compress.function name parse parmeter*/
-           }
+
+            switch (filetype) {
+                case 1:
+                    
+                    break;
+                    
+                case 2:
+                
+                    break;
+
+                case 3:
+                
+                    break;
+        
+                default:
+                    console.log("Please input the correct value")
+                    break;
+            }
         
        }) 
     }
