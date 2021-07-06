@@ -1,42 +1,32 @@
 const compressing = require("compressing");
-const fileNaming = require("./fileNaming");
+const fileNaming = require("./decompFileNaming");
 
-//var choice = "zip";
+module.exports = (path) => {
 
-//var path = "C:\\decompressed.zip";
-
-
-
-var deCompressingFunc = (path) => {
   var type = path.substring(path.length - 3, path.length);
   switch (type) {
     case "zip":
-      //var type = path.substring(".", 3);
       compressing.zip
         .uncompress(path, fileNaming(path))
-        .then(console.log("the zip has been decompressed"))
-        .catch(console.log("This file has not been decompressed"));
-
-      //save the un zip file under your c drive but it shows error in console
+        .then(()=>{console.log("The file has been decompressed");})
+        .catch(error=>{console.log("Decompression failed, please ensure the file path is correct: " + path)})
       break;
 
     case "tar":
       compressing.tar
         .uncompress(path, fileNaming(path))
-        .then(console.log("The file has been decompressed"))
-        .catch(console.log("This file has not been decompressed"));
+        .then(()=>{console.log("The file has been decompressed");})
+        .catch(error=>{console.log("Decompression failed, please ensure the file path is correct: " + path)})
       break;
 
     case "tgz":
       compressing.tgz
         .uncompress(path, fileNaming(path))
-        .then(console.log("The file has been decompressed"))
-        .catch(console.log("This file has not been decompressed"));
+        .then(()=>{console.log("The file has been decompressed");})
+        .catch(error=>{console.log("Decompression failed, please ensure the file path is correct: " + path)})
       break;
 
     default:
       console.log("IDK");
   }
 };
-
-module.exports = {deCompressingFunc};

@@ -1,42 +1,60 @@
-const compress = require('compressing');
-const fileNaming = require('./fileNaming');
+const comp = require('Compressing');
+const naming = require('./compFileNaming')
 
-var compressingFunc = (choice, path)=>{
-    switch (choice) {
-        case "zip":
-    
-            if (path.valueOf(".")>=0) {
-                compress.zip.compressFile(path, fileNaming(path, "zip")).then(console.log("File has been sucessfully compressed to .zip")).catch(console.log("Error!"));
-            } else{
-                compress.zip.compressDir(path, fileNaming(path, "zip")).then(console.log("File has been sucessfully compressed to .zip")).catch(console.log("Error!"));
-            }
+module.exports = (compFileType, filePath) => {
+    switch (compFileType) {
+        case 'zip':
             
-            break;
+            if (filePath.indexOf(".")>=0) {
+                
+                comp.zip.compressFile(filePath, naming(filePath, compFileType))
+                .then(console.log("File has been compressed"))
+                .catch(error=>{console.log("An Error has occurred, please ensure you have entered the correct path: "+filePath);})
     
-        case "tar":
-    
-            if (path.valueOf(".")>=0) {
-                compress.tar.compressFile(path, fileNaming(path, "tar")).then(console.log("File has been sucessfully compressed to .tar")).catch(console.log("Error!"));
-            } else{
-                compress.tar.compressDir(path, fileNaming(path, "tar")).then(console.log("File has been sucessfully compressed to .tar")).catch(console.log("Error!"));
+            } else {
+                comp.zip.compressDir(filePath, naming(filePath, compFileType))
+                .then(()=>{console.log("File has been compressed");})
+                .catch(error=>{console.log("something")})
             }
     
-            break;
+        break;
     
-        case "tgz":
+        case 'tar':
+        
+            if (filePath.indexOf(".")>=0) {
+                
+                comp.tar.compressFile(filePath, naming(filePath, compFileType))
+                .then(console.log("File has been compressed"))
+                .catch(console.log("An Error has occurred, please ensure you have entered the correct path: "+filePath));
     
-            if (path.valueOf(".")>=0) {
-                compress.tgz.compressFile(path, fileNaming(path, "tgz")).then(console.log("File has been sucessfully compressed to .tgz")).catch(console.log("Error!"));
-            } else{
-                compress.tgz.compressDir(path, fileNaming(path, "tgz")).then(console.log("File has been sucessfully compressed to .tgz")).catch(console.log("Error!"));
+            } else {
+                comp.tar.compressDir(filePath, naming(filePath, compFileType))
+                .then(console.log("File has been compressed"))
+                .catch(console.log("An Error has occurred, please ensure you have entered the correct path: "+filePath));
             }
     
-            break;
+        break;
+    
+        case 'tgz':
+        
+            if (filePath.indexOf(".")>=0) {
+                
+                comp.tgz.compressFile(filePath, naming(filePath, compFileType))
+                .then(console.log("File has been compressed"))
+                .catch(console.log("An Error has occurred, please ensure you have entered the correct path: "+filePath));
+    
+            } else {
+                comp.tgz.compressDir(filePath, naming(filePath, compFileType))
+                .then(console.log("File has been compressed"))
+                .catch(console.log("An Error has occurred, please ensure you have entered the correct path: "+filePath));
+            }
+    
+        break;
     
         default:
-            console.log("Error! File extension not supported!")
+    
+    
+    
             break;
     }
-}
-
-module.exports = {compressingFunc}
+} 
