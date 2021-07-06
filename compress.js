@@ -41,4 +41,4 @@ var compressingFunc = (choice, path)=>{
     }
 }
 
-module.exports = compressingFunc
+module.exports = {compressingFunc}

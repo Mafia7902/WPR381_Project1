@@ -5,11 +5,11 @@ const fileNaming = require("./fileNaming");
 
 //var path = "C:\\decompressed.zip";
 
-//var type = path.substring(path.length - 3, path.length);
-//console.log(type);
 
-var deCompressingFunc = (choice, path) => {
-  switch (choice) {
+
+var deCompressingFunc = (path) => {
+  var type = path.substring(path.length - 3, path.length);
+  switch (type) {
     case "zip":
       //var type = path.substring(".", 3);
       compressing.zip
@@ -39,4 +39,4 @@ var deCompressingFunc = (choice, path) => {
   }
 };
 
-module.exports = deCompressingFunc;
+module.exports = {deCompressingFunc};
