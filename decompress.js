@@ -1,34 +1,42 @@
-var compressing = require("compressing");
-var choice = "";
+const compressing = require("compressing");
+const fileNaming = require("./fileNaming");
 
-var path = "C:\\decompressed.zip";
+//var choice = "zip";
 
-var type = path.substring(path.length - 3, path.length);
-console.log(type);
+//var path = "C:\\decompressed.zip";
 
-switch (choice) {
-  case "zip":
-    //var type = path.substring(".", 3);
-    compressing.zip
-      .uncompress("C:\\decompressed.zip", "C:\\decompressed.zip")
-      .then(console.log("the file has been decompressed"))
-      .catch(console.log("This file has not been decompressed"));
-    break;
+//var type = path.substring(path.length - 3, path.length);
+//console.log(type);
 
-  case "tar":
-    compressing.tar
-      .uncompress("C:\\decompressed.tar", "C:\\decompressed.tar")
-      .then(console.log("The file has been decompressed"))
-      .catch(console.log("This file has not been decompressed"));
-    break;
+var deCompressingFunc = (choice, path) => {
+  switch (choice) {
+    case "zip":
+      //var type = path.substring(".", 3);
+      compressing.zip
+        .uncompress(path, fileNaming(path))
+        .then(console.log("the zip has been decompressed"))
+        .catch(console.log("This file has not been decompressed"));
 
-  case "tgz":
-    compressing.tgz
-      .uncompress("C:\\decompressed.tgz", "C:\\decompressed.tgz")
-      .then(console.log("The file has been decompressed"))
-      .catch(console.log("This file has not been decompressed"));
-    break;
+      //save the un zip file under your c drive but it shows error in console
+      break;
 
-  default:
-    console.log("IDK");
-}
+    case "tar":
+      compressing.tar
+        .uncompress(path, fileNaming(path))
+        .then(console.log("The file has been decompressed"))
+        .catch(console.log("This file has not been decompressed"));
+      break;
+
+    case "tgz":
+      compressing.tgz
+        .uncompress(path, fileNaming(path))
+        .then(console.log("The file has been decompressed"))
+        .catch(console.log("This file has not been decompressed"));
+      break;
+
+    default:
+      console.log("IDK");
+  }
+};
+
+module.exports = deCompressingFunc;
