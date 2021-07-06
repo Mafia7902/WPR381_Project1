@@ -20,6 +20,9 @@ rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Fi
                rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
                     console.clear();
                     compress.compressingFunc('zip', path);
+                    console.log(chalk.green(`Thank you for using the WPR Hitman${emojis.get('gun')}`));
+                    process.exit(1);
+                    
                 })
                 
                }
@@ -27,16 +30,22 @@ rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Fi
                 rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
                     console.clear();
                     compress.compressingFunc('tar', path);
+                    console.log(chalk.green(`Thank you for using the WPR Hitman${emojis.get('gun')}`));
+                    process.exit(1);
                 })
                }
                else if(filetype==3){
                 rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
                     console.clear();
                     compress.compressingFunc('tgz', path);
+                    console.log(chalk.green(`Thank you for using the WPR Hitman${emojis.get('gun')}`));
+                    process.exit(1);
                 })
                }
                else{
                 console.log(chalk.red("Error, Please input a number between 1 and 3"+emojis.get('angry')));
+                console.log(chalk.green(`Thank you for using the WPR Hitman${emojis.get('gun')}`));
+                    process.exit(1);
                }
                
            }) 
@@ -56,7 +65,6 @@ rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Fi
             console.clear();
             console.log('Please enter a valid value')
         }
-    console.log(chalk.green(`Thank you for using the WPR Hitman${emojis.get('gun')}`));
-    process.exit(1);
+    
     
 })
