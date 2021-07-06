@@ -13,5 +13,5 @@ module.exports = (filePath, fileType)=>{
 
     var finalPathName = filePathName.join("\\")
     
-    return finalPathName
+    return finalPathName//why not make this a single slash
 }

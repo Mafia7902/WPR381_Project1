@@ -14,6 +14,7 @@ var exit = ()=>{
     console.log(chalk.green(`Thank you for using the WPR Hitman${emojis.get('gun')}`));
     process.exit(1);
 }
+//ask about filenaming from kevin
 console.log(chalk.yellow("\nPlease input a number between 1 and 3"+emojis.get('smile')))
 rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Files or folders \n3. Quit application \nInput answer: '), (answer)=>{
         if(answer==1){
@@ -60,8 +61,8 @@ rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Fi
         }
         else{
             console.clear();
-            console.log('Please enter a valid value')
-            exit();
+            console.log(chalk.red("Error, input a number between 1 and 3"+emojis.get('angry')));
+                exit();
         }
     
     
