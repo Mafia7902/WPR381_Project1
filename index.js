@@ -17,56 +17,118 @@ var exit = ()=>{
     }, 300);
 }
 //ask about filenaming from kevin
-console.log(chalk.yellow("\nPlease input a number between 1 and 3"+emojis.get('smile')))
-rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Files or folders \n3. Quit application \nInput answer: '), (answer)=>{
-        if(answer==1){
-            console.clear();
-            console.log(chalk.yellow("Please input a number between 1 and 4"+emojis.get('smile')))
-           rl.question(chalk.blue('What type of file do you want to compress?\n1. .zip, \n2. .tar, \n3. .tgz \nValue: '), (filetype)=>{
-               if(filetype==1){
-               rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+console.log(chalk.yellow("\nPlease input a number between 1 and 2"+emojis.get('smile')));
+rl.question(chalk.blue('Does your folder constain subfolders \n1. Yes, \n2. No'), (answer)=>{
+    if(answer==1){
+        console.log(chalk.yellow("\nPlease input a number between 1 and 3"+emojis.get('smile')));
+        rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Files or folders \n3. Quit application \nInput answer: '), (answer)=>{
+                if(answer==1){
                     console.clear();
-                    compress('zip', path);
+                    console.log(chalk.yellow("Please input a number between 1 and 4"+emojis.get('smile')))
+                   rl.question(chalk.blue('What type of file do you want to compress?\n1. .zip, \n2. .tar, \n3. .tgz \nValue: '), (filetype)=>{
+                       if(filetype==1){
+                       rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                            console.clear();
+                            compress('zip', path);
+                            exit();
+                        })
+                       }
+                       else if(filetype==2){
+                        rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                            console.clear();
+                            compress('tar', path);
+                            exit();
+                        })
+                       }
+                       else if(filetype==3){
+                        rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                            console.clear();
+                            compress('tgz', path);
+                            exit();
+                        })
+                       }
+                       else{
+                        console.log(chalk.red("Error, Please input a number between 1 and 3"+emojis.get('angry')));
+                        exit();
+                       }
+                       
+                   }) 
+                }
+                else if(answer==2){
+                   rl.question(chalk.blue('please input the file path you would like to decompress e.g. \\path\\to\\[nameOfFile].ext '), (filepath)=>{
+                    console.clear();      
+                    decompress(filepath);  
                     exit();
-                })
-               }
-               else if(filetype==2){
-                rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                   }) 
+                }
+                else if(answer==3){
                     console.clear();
-                    compress('tar', path);
                     exit();
-                })
-               }
-               else if(filetype==3){
-                rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                }
+                else{
                     console.clear();
-                    compress('tgz', path);
+                    console.log(chalk.red("Error, input a number between 1 and 3"+emojis.get('angry')));
+                        exit();
+                }
+            
+            
+        })
+    }
+    else if(answer==2){//sub folders
+        console.log(chalk.yellow("\nPlease input a number between 1 and 3"+emojis.get('smile')));
+        rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Files or folders \n3. Quit application \nInput answer: '), (answer)=>{
+                if(answer==1){
+                    console.clear();
+                    console.log(chalk.yellow("Please input a number between 1 and 4"+emojis.get('smile')))
+                   rl.question(chalk.blue('What type of file do you want to compress?\n1. .zip, \n2. .tar, \n3. .tgz \nValue: '), (filetype)=>{
+                       if(filetype==1){
+                       rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                            console.clear();
+                            compress('zip', path);
+                            exit();
+                        })
+                       }
+                       else if(filetype==2){
+                        rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                            console.clear();
+                            compress('tar', path);
+                            exit();
+                        })
+                       }
+                       else if(filetype==3){
+                        rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
+                            console.clear();
+                            compress('tgz', path);
+                            exit();
+                        })
+                       }
+                       else{
+                        console.log(chalk.red("Error, Please input a number between 1 and 3"+emojis.get('angry')));
+                        exit();
+                       }
+                       
+                   }) 
+                }
+                else if(answer==2){
+                   rl.question(chalk.blue('please input the file path you would like to decompress e.g. \\path\\to\\[nameOfFile].ext '), (filepath)=>{
+                    console.clear();      
+                    decompress(filepath);  
                     exit();
-                })
-               }
-               else{
-                console.log(chalk.red("Error, Please input a number between 1 and 3"+emojis.get('angry')));
+                   }) 
+                }
+                else if(answer==3){
+                    console.clear();
+                    exit();
+                }
+                else{
+                    console.clear();
+                    console.log(chalk.red("Error, input a number between 1 and 3"+emojis.get('angry')));
+                        exit();
+                }
+        })
+    }
+    else{
+        console.log(chalk.red("Error, Please input a number between 1 and 3"+emojis.get('angry')));
                 exit();
-               }
-               
-           }) 
-        }
-        else if(answer==2){
-           rl.question(chalk.blue('please input the file path you would like to decompress e.g. \\path\\to\\[nameOfFile].ext '), (filepath)=>{
-            console.clear();      
-            decompress(filepath);  
-            exit();
-           }) 
-        }
-        else if(answer==3){
-            console.clear();
-            exit();
-        }
-        else{
-            console.clear();
-            console.log(chalk.red("Error, input a number between 1 and 3"+emojis.get('angry')));
-                exit();
-        }
-    
-    
+    }
 })
