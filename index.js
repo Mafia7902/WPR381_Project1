@@ -4,6 +4,8 @@ const chalk = require('chalk');//colors
 const emojis = require('node-emoji');//emojis
 const compress = require('./compress.js');
 const decompress = require('./decompress.js');
+const compFolderDiver = require("./CompFolderDive") 
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -84,21 +86,21 @@ rl.question(chalk.blue('Does your folder constain subfolders \n1. Yes, \n2. No')
                        if(filetype==1){
                        rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
                             console.clear();
-                            compress('zip', path);
+                            compFolderDiver('zip', path)
                             exit();
                         })
                        }
                        else if(filetype==2){
                         rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
                             console.clear();
-                            compress('tar', path);
+                            compFolderDiver('tar', path);
                             exit();
                         })
                        }
                        else if(filetype==3){
                         rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
                             console.clear();
-                            compress('tgz', path);
+                            compFolderDiver('tgz', path);
                             exit();
                         })
                        }
