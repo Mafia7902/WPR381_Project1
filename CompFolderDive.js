@@ -1,39 +1,23 @@
-const comp = require("./Compress")
-const RemFile = require("./RemoveFile")
-const fs = require('fs');
+const pathFinder = require("./findingPaths")
+const compressPaths = require("./compressingPaths")
 
-module.exports = (FileType, testFolder)=>{
-    var files = fileDive(testFolder)
-    files.forEach(openFile => {
-        var oldDir = testFolder.split("\\")
-        oldDir.push(openFile)
-        var newDir = oldDir.join('\\')
-        var deepDiveDir = fileDive(newDir)
-        
-        deepDiveDir.forEach(cake =>{
-            var oldCake = newDir.split("\\")
-            oldCake.push(cake)
-            var newCake = oldCake.join("\\")
-            comp(FileType,newCake)
-            RemFile(newCake)
-        })
-        setTimeout(() => {
-            comp(FileType,newDir)
-            console.log(newDir);
-            
-        }, 3000);
-        setTimeout(() => {
-            RemFile(newDir)
-        }, 4000);
+module.exports = (compType, testFolder) => {
+    const compProm = new Promise((res, rej)=>{
+        try {
+            pathFinder(testFolder)
+            res()
+        } catch (error) {
+            rej()
+        }
     });
-}
-
-
-function fileDive(DIR){
-    var arra = []
-    fs.readdirSync(DIR).forEach(file => {
-        arra.push(file)
-        //console.log(file);
-    });
-    return arra
+    
+    
+    
+    compProm.catch((err)=>{
+        console.log("an error hath occurred");
+    }).then(setTimeout(() => {
+        compressPaths(compType, testFolder)
+    }, 2000)).catch((err)=>{
+        console.log(err);
+    })
 }
