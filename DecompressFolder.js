@@ -2,7 +2,7 @@ const paths = require("./findingPaths")
 const decomp = require("./Decompress.js")
 const fs = require("fs")
 
-module.exports = UnzipPath(UserGivenDIR)
+module.exports = {UnzipPath};
 
 var index = 0
 function UnzipPath(UserGivenDIR) {

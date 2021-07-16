@@ -1,7 +1,7 @@
 const fs = require('fs');
 const comp = require("./compress")
 
-module.exports = ReadPathsCompress
+module.exports = {ReadPathsCompress};
 
 // Reading from the cache of all possible DIRs
 function ReadPathsCompress(compType, UserGivenPath) {
