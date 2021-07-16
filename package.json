@@ -19,6 +19,7 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "compressing": "^1.5.1",
+    "extract-zip": "^2.0.1",
     "node-emoji": "^1.10.0"
   }
 }
