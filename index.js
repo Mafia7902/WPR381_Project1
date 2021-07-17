@@ -66,7 +66,7 @@ var exit = ()=>{
                        }) 
                     }
                     else if(answer==2){
-                       rl.question(chalk.blue('please input path you would like to decompress e.g. \\path\\to\\[nameOfFile].ext '), (filepath)=>{
+                       rl.question(chalk.blue('please input path you would like to decompress e.g. \\path\\to\\ '), (filepath)=>{
                         console.clear();   
                         decompRessFolder.UnzipPath(filepath);
                        }) 
