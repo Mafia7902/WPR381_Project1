@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = AllPossiblePaths
+
 
 // finding all the paths with endpoints (folders with documents)
 function AllPossiblePaths(UserGivenDIR){
@@ -32,3 +32,4 @@ function gettingPath(UserGivenDIR) {
     });
     return breakPaths
 }
+module.exports = {AllPossiblePaths}

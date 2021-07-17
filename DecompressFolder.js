@@ -1,4 +1,4 @@
-const paths = require("./findingPaths")
+const paths = require("./findingPaths.js")
 const decomp = require("./decompress.js")
 const fs = require("fs")
 
@@ -14,7 +14,7 @@ function UnzipPath(UserGivenDIR) {
 
 function decompAll(UserGivenDIR, i) {
     setTimeout(() => {
-        paths(UserGivenDIR)
+        paths.AllPossiblePaths(UserGivenDIR)
 
         setTimeout(() => {
             fs.readFile('./message.txt', function(err, data) {
@@ -27,7 +27,7 @@ function decompAll(UserGivenDIR, i) {
                 var ZippedPaths = gettingZipPaths(ReadPaths)
         
                 ReadPaths.forEach(element => {
-                    decomp(element)
+                    decomp.decompressor(element)
                 });
         
                 fs.writeFile('./message.txt', '', function (err) {

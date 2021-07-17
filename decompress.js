@@ -1,7 +1,7 @@
 const compressing = require("compressing");
 const fileNaming = require("./decompFileNaming");
 
-module.exports = (path) => {
+ var decompressor = (path) => {
 
   var type = path.substring(path.length - 3, path.length);
   switch (type) {
@@ -30,3 +30,4 @@ module.exports = (path) => {
       console.log("IDK");
   }
 };
+module.exports = {decompressor}
