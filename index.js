@@ -150,3 +150,5 @@ var exit = ()=>{
 }
 
 TheUi();
+
+module.exports = {QuitApp}

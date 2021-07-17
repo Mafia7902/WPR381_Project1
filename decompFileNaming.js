@@ -9,6 +9,3 @@ module.exports = (filePath)=>{
     
     return finalPathName
 }
-
-//var filePath = "C:\\Users\\janvw\\Desktop\\CompressFile.zip"
-

@@ -1,7 +1,7 @@
 const paths = require("./findingPaths.js")
 const decomp = require("./decompress.js")
 const fs = require("fs")
-
+const chalk = require('chalk');
 
 
 var index = 0
@@ -10,6 +10,13 @@ function UnzipPath(UserGivenDIR) {
         decompAll(UserGivenDIR, index)
         index++
     }
+    
+    if (index==20) {
+        setTimeout(() => {
+            QuitApp()
+        }, 5000);
+    }
+    
 }
 
 function decompAll(UserGivenDIR, i) {
@@ -52,5 +59,10 @@ function gettingZipPaths(paths) {
         }
     });
     return zipPaths
+}
+
+function QuitApp(){
+    console.log(`Thank you for using the WPR Hitman`);
+    process.exit(1);
 }
 module.exports = {UnzipPath};
