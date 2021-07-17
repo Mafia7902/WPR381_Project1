@@ -17,7 +17,7 @@ function decompAll(UserGivenDIR, i) {
         paths.AllPossiblePaths(UserGivenDIR)
 
         setTimeout(() => {
-            fs.readFile('./message.txt', function(err, data) {
+            fs.readFile('./foundPaths.txt', function(err, data) {
                 if(err) throw err;
             
                 // splits data at the next line and stores in an array
@@ -30,7 +30,7 @@ function decompAll(UserGivenDIR, i) {
                     decomp.decompressor(element)
                 });
         
-                fs.writeFile('./message.txt', '', function (err) {
+                fs.writeFile('./foundPaths.txt', '', function (err) {
                     if (err) return console.log(err);
                 });
         
