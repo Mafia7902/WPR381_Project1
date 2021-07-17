@@ -119,7 +119,6 @@ var exit = ()=>{
                             
                             TheUi();
                            }
-                           
                        }) 
                     }
                     else if(answer==2){
