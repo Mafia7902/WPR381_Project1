@@ -33,7 +33,7 @@ var exit = ()=>{
             rl.question(chalk.blue('Would you like to: \n1. Compress Folders \n2. Extract Folders \n3. Quit application \nInput answer: '), (answer)=>{
                     if(answer==1){
                         console.clear();
-                        console.log(chalk.yellow("Please input a number between 1 and 4"+emojis.get('smile')))
+                        console.log(chalk.yellow("Please input a number between 1 and 3"+emojis.get('smile')))
                        rl.question(chalk.blue('What type of file do you want to compress?\n1. .zip, \n2. .tar, \n3. .tgz \nValue: '), (filetype)=>{
                            if(filetype==1){
                            rl.question(chalk.blue('please input the file path you would like to compress e.g. \\path\\to\\[nameOfFile] '), (path)=>{
