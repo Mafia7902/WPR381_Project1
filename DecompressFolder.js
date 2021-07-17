@@ -1,5 +1,6 @@
 const paths = require("./findingPaths.js")
 const decomp = require("./decompress.js")
+const emojis = require('node-emoji');
 const fs = require("fs")
 const chalk = require('chalk');
 
@@ -62,7 +63,7 @@ function gettingZipPaths(paths) {
 }
 
 function QuitApp(){
-    console.log(`Thank you for using the WPR Hitman`);
+    console.log(chalk.green(`Thank you for using the WPR Hitman${emojis.get('gun')}`));
     process.exit(1);
 }
 module.exports = {UnzipPath};
